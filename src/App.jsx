@@ -30,9 +30,10 @@ function App() {
 
   useEffect(() => {
     const initializeGame = () => {
-     
+      // shuffle แบบง่ายๆ
+      const shuffled = [...cardValues].sort(() => Math.random() - 0.5);
 
-      const finalCards = cardValues.map((value, index) => ({
+      const finalCards = shuffled.map((value, index) => ({
         id: index,
         value,
         isFlipped: false,
@@ -109,7 +110,6 @@ function App() {
           return <Card card={card} onClick={handleCardClick} />;
         })}
       </div>
-      
     </div>
   );
 }
